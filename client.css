@@ -1,0 +1,70 @@
+/*id dùng #... */
+html {
+    background: lightgrey;
+}
+
+#root {
+    display: flex;
+    flex-direction: column; /* phương hướng của flex: row hoặc column */
+}
+
+#root > * { /* dấu "*" là để chọn tất cả tập con của root */
+    flex-grow: 1; /* Để kéo các thứ dài ra 1 đoạn x/y, trong đó x là khoảng cách còn lại từ các nút đó tới mép phải của browser, y là số nút */
+    /* margin-top: 8px; */
+}
+#root > *:not(:first-child) {
+    margin-top: 8px;
+}
+
+#root > *:nth-child(3n + 1) {
+    background: black;
+}
+
+#root > *:nth-last-child(2) {
+    background: black;
+}
+
+/*class dùng dấu "."; class là để sử dụng 1 style nhiều lần vì class có thể được dùng bởi nhiều tag. VD:
+        <input class="abc def" />
+        <input class="abc ghi" /> 
+Như trên là class abc được dùng 2 lần*/
+.abc {
+    background: white;
+}
+
+/* .def {
+    font-size: 20px;
+} */
+
+/* .ghi {
+    font-size: 10px;
+} */
+
+.action-button {
+    background: #f2f2f2;
+    border: none; /* viền của nút action button, none ở đây là không có viền */
+    border-radius: 4px; 
+    cursor: pointer;
+    margin-left: 8px;
+    padding: 8px;
+}
+
+.action-button:hover {
+    border: 1px solid black; /* dùng để hiện viền của nút action button khi rê chuột vào, có 1 số lựa chọn cho viền như solid, dotted, dashed */
+    background: grey; /* hiển thị màu của nút khi rê chuột vào */
+    color: white; /* dùng để thay đổi màu chữ */
+} 
+
+.table {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cell {
+    background: white;
+    height: 40px;
+  }
+  
+  .cell:nth-child(even) {
+    background: lightblue;
+  }
