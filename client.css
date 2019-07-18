@@ -1,36 +1,49 @@
 /*id dùng #... */
-html {
-    background: lightgrey;
+html,
+body,
+
+/* Khi dùng dấu phẩy phía sau html và body thì chứng tỏ tất cả những effect phía dưới sẽ được áp dụng cho cả html và body */
+
+#root {
+    height: 100%;
+    width: 100%; /* 100% chứng tỏ chiều cao và chiều rộng của những thứ trong root sẽ đạt 100% kích thước đã cho sẵn trong tag mẹ đẻ */
 }
 
 #root {
+    align-items: center; /* cùng với justify-content tất cả các content sẽ được đưa vào chính giữa của cửa sổ browser */
     display: flex;
     flex-direction: column; /* phương hướng của flex: row hoặc column */
+    justify-content: center; /* đưa tất cả content vào giữa theo hướng trục chính, khi đó các content sẽ bị kéo dãn ngang nếu flex là column, dọc nếu là row */
 }
 
-#root > * { /* dấu "*" là để chọn tất cả tập con của root */
-    flex-grow: 1; /* Để kéo các thứ dài ra 1 đoạn x/y, trong đó x là khoảng cách còn lại từ các nút đó tới mép phải của browser, y là số nút */
-    /* margin-top: 8px; */
-}
-#root > *:not(:first-child) {
-    margin-top: 8px;
+
+html {
+    background: white;
 }
 
-#root > *:nth-child(3n + 1) {
+/* #root > * { dấu "*" là để chọn tất cả tập con của root */
+    /* flex-grow: 1; Để kéo các thứ dài ra 1 đoạn x/y, trong đó x là khoảng cách còn lại từ các nút đó tới mép phải của browser, y là số nút */
+    /* margin-top: 8px;} */
+
+/* #root > *:not(:first-child) { */
+    /* margin-top: 8px;} */
+
+
+/* #root > *:nth-child(3n + 1) {
     background: black;
-}
+} */
 
-#root > *:nth-last-child(2) {
+/* #root > *:nth-last-child(2) {
     background: black;
-}
+} */
 
 /*class dùng dấu "."; class là để sử dụng 1 style nhiều lần vì class có thể được dùng bởi nhiều tag. VD:
         <input class="abc def" />
         <input class="abc ghi" /> 
 Như trên là class abc được dùng 2 lần*/
-.abc {
+/* .abc {
     background: white;
-}
+} */
 
 /* .def {
     font-size: 20px;
@@ -40,22 +53,7 @@ Như trên là class abc được dùng 2 lần*/
     font-size: 10px;
 } */
 
-.action-button {
-    background: #f2f2f2;
-    border: none; /* viền của nút action button, none ở đây là không có viền */
-    border-radius: 4px; 
-    cursor: pointer;
-    margin-left: 8px;
-    padding: 8px;
-}
-
-.action-button:hover {
-    border: 1px solid black; /* dùng để hiện viền của nút action button khi rê chuột vào, có 1 số lựa chọn cho viền như solid, dotted, dashed */
-    background: grey; /* hiển thị màu của nút khi rê chuột vào */
-    color: white; /* dùng để thay đổi màu chữ */
-} 
-
-.table {
+/* .table {
     display: flex;
     flex-direction: column;
   }
@@ -67,4 +65,44 @@ Như trên là class abc được dùng 2 lần*/
   
   .cell:nth-child(even) {
     background: lightblue;
+  } */
+  .action-button {
+    background: #f2f2f2;
+    border: none; /* viền của nút action button, none ở đây là không có viền */
+    border-radius: 4px; 
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6); /* màu chữ */
+    font-family: "system-ui";
+}
+
+.action-button:hover {
+    border: 1px solid black; /* dùng để hiện viền của nút action button khi rê chuột vào, có 1 số lựa chọn cho viền như solid, dotted, dashed */
+    background: grey; /* hiển thị màu của nút khi rê chuột vào */
+    color: white; /* dùng để thay đổi màu chữ */
+} 
+
+  .search-box {
+      border: 1px solid lightgrey;
+      margin-top: 32px; /* thường dùng giá trị là bội của 8 với margin và padding */
+      padding: 16px 16px; /* 8px 16px tương đương:
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-left: 16px;
+      padding-right: 16px; */
+      outline: none; /* không còn đường bao khi bấm vào khung search-box nữa */
+      width: 50%;
+      border-radius: 32px;
+  }
+  .action-button-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 24px;
+    border: none; /* viền của nút action button, none ở đây là không có viền */
+    border-radius: 1px; 
+    cursor: pointer;
+  }
+  .action-button-container > *:not(:first-child) {
+      margin-left: 8px;
   }
