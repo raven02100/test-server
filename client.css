@@ -106,3 +106,11 @@ Như trên là class abc được dùng 2 lần*/
   .action-button-container > *:not(:first-child) {
       margin-left: 8px;
   }
+
+  .toolbar {
+      color: grey;
+      position: absolute; /* tag này nằm ở vị trí cố định, không bị ảnh hưởng của flex của id root nữa */
+      top: 16px;
+      right: 16px; /* đã dùng right thì không có left, có top thì k có bottom */
+      
+  }
